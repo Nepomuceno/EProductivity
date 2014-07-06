@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using EProductivity.Core.Model;
+using EProductivity.Core.Validator;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -89,6 +90,22 @@ namespace EProductivity.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            if (Util.CpfValido(model.Document))
+            {
+                
+            }
+            else
+            {
+                if (Util.CnpjValido(model.Document))
+                {
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Document","Documento invalido");
+                }
+
+            }
             if (ModelState.IsValid)
             {
                 var user = new EProductivityUser { UserName = model.Email, Email = model.Email };

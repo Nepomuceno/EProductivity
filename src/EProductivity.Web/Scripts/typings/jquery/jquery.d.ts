@@ -162,7 +162,7 @@ interface JQueryAjaxSettings {
 /**
  * Interface for the jqXHR object
  */
-interface JQueryXHR extends XMLHttpRequest, JQueryPromise<any> {
+interface JQueryXHR extends XMLHttpRequest {
     /**
      * The .overrideMimeType() method may be used in the beforeSend() callback function, for example, to modify the response content-type header. As of jQuery 1.5.1, the jqXHR object also contains the overrideMimeType() method (it was available in jQuery 1.4.x, as well, but was temporarily removed in jQuery 1.5). 
      */

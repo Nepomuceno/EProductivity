@@ -59,14 +59,18 @@ namespace EProductivity.Web.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Documento")]
+        public string Document { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "A {0} deve ter ao menos {2} characteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Senha")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "A confirmação da senha nao bate com a senha.")]
+        [Display(Name = "Confirmar senha")]
+        [Compare("Password", ErrorMessage = "A confirmação da senha não bate com a senha.")]
         public string ConfirmPassword { get; set; }
     }
 
