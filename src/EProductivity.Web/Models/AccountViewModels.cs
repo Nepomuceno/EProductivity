@@ -44,10 +44,10 @@ namespace EProductivity.Web.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Senha")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Lembrar o meu acesso?")]
         public bool RememberMe { get; set; }
     }
 

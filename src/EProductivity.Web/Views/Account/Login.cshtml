@@ -21,7 +21,7 @@
                             <div class="col-sm-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" name="email" placeholder="Usuario (e-mail)" id="username" class="form-control">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Usuario (e-mail)" })
                                 </div>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                             <div class="col-sm-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" name="password" placeholder="Senha" id="password" class="form-control">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Senha" })
                                 </div>
                             </div>
                         </div>

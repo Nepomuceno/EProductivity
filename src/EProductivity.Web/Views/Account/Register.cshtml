@@ -2,12 +2,13 @@
 @model EProductivity.Web.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 <div class="sign-up-container" id="cl-wrapper">
     <div class="middle-sign-up">
         <div class="block-flat">
             <div class="header">
-                <h3 class="text-center"><img class="logo-img" alt="logo" src="~/Content/images/logo.png"> Clean Zone</h3>
+                <h3 class="text-center"><img class="logo-img" alt="logo" src="~/Content/images/logo.png"> E-Productivity</h3>
             </div>
             <div>
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -20,7 +21,7 @@
                             <div class="col-sm-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "e-mail" })
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "E-mail" })
                                 </div>
                                 <div id="email-error"></div>
                             </div>
@@ -29,7 +30,7 @@
                             <div class="col-sm-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    @Html.TextBoxFor(m => m.Documento, new { @class = "form-control", placeholder = "Documento (CPF ou CNPJ)" })
+                                    @Html.TextBoxFor(m => m.Document, new { @class = "form-control", placeholder = "Documento (CPF ou CNPJ)" })
                                 </div>
                                 <div id="nick-error"></div>
                             </div>
@@ -48,11 +49,14 @@
                                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirme a senha" })
                                 </div>
                                 <div id="confirmation-error"></div>
-                                <p class="spacer">By creating an account, you agree with the <a href="#">Terms</a> and <a href="#">Conditions</a>.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 col-xs-12">
+                                <p class="spacer">Por criar uma conta você esta de acordo com os <a href="#">Termos</a> e <a href="#">Condições</a>.</p>
                                 <button class="btn btn-block btn-success btn-rad btn-lg" type="submit">Registrar</button>
                             </div>
                         </div>
-
                     </div>
                 }
             </div>
