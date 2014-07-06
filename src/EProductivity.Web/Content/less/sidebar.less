@@ -1,3 +1,4 @@
+@import "config.less";
 /*Vertical Navigation*/
 .cl-sidebar{
   background:#272930;
@@ -27,7 +28,7 @@
 }
 
 .cl-vnavigation .parent a{
-	background: url("../images/arrow.png") no-repeat scroll right 14px top 18px transparent;
+	background: url("@{imagesPath}/arrow.png") no-repeat scroll right 14px top 18px transparent;
 }
 
 .cl-vnavigation li a{
@@ -227,7 +228,7 @@ color:#DBDBDB;font-size:11px;
   }
   
   #sub-menu-nav  ul:after{
-    background: url(../images/menu-tail-left.png) no-repeat right 10px;
+    background: url('@{imagesPath}/menu-tail-left.png') no-repeat right 10px;
     top: 0px;
     content: "";
     display: inline-block;

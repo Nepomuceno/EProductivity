@@ -216,8 +216,26 @@
     <Content Include="Content\images\tw-icon.png" />
     <Content Include="Content\images\user-icon.png" />
     <Content Include="Content\images\yt-icon.png" />
+    <Content Include="Content\less\404.css">
+      <DependentUpon>404.less</DependentUpon>
+    </Content>
     <Content Include="Content\less\config.css">
       <DependentUpon>config.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\elements\buttons.css">
+      <DependentUpon>buttons.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\elements\chat-widget.css">
+      <DependentUpon>chat-widget.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\navbar.css">
+      <DependentUpon>navbar.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\responsive.css">
+      <DependentUpon>responsive.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\sidebar.css">
+      <DependentUpon>sidebar.less</DependentUpon>
     </Content>
     <Content Include="Content\pygments.css" />
     <Content Include="Content\style.css">
@@ -233,6 +251,8 @@
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Scripts\jquery.validate.unobtrusive.zbootstrap.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.zbootstrap.min.js" />
     <Content Include="Scripts\plugins\bootstrap.datetimepicker\css\bootstrap-datetimepicker.css" />
     <Content Include="Scripts\plugins\bootstrap.datetimepicker\css\bootstrap-datetimepicker.min.css" />
     <Content Include="Scripts\plugins\bootstrap.datetimepicker\js\bootstrap-datetimepicker.js" />
@@ -372,6 +392,24 @@
     <Content Include="Content\less\config.css.map">
       <DependentUpon>config.css</DependentUpon>
     </Content>
+    <Content Include="Content\less\elements\buttons.css.map">
+      <DependentUpon>buttons.css</DependentUpon>
+    </Content>
+    <Content Include="Content\less\navbar.css.map">
+      <DependentUpon>navbar.css</DependentUpon>
+    </Content>
+    <Content Include="Content\less\elements\chat-widget.css.map">
+      <DependentUpon>chat-widget.css</DependentUpon>
+    </Content>
+    <Content Include="Content\less\404.css.map">
+      <DependentUpon>404.css</DependentUpon>
+    </Content>
+    <Content Include="Content\less\responsive.css.map">
+      <DependentUpon>responsive.css</DependentUpon>
+    </Content>
+    <Content Include="Content\less\sidebar.css.map">
+      <DependentUpon>sidebar.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\plugins\bootstrap.switch\bootstrap-switch.css" />
     <Content Include="Scripts\plugins\bootstrap.switch\bootstrap-switch.min.js" />
@@ -478,6 +516,7 @@
     <Content Include="Views\Shared\_MainMenu.cshtml" />
     <Content Include="Views\Shared\_SideBar.cshtml" />
     <Content Include="Views\Home\DashBoard.cshtml" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -499,6 +538,7 @@
     <TypeScriptCompile Include="Scripts\typings\bootstrap.datepicker\bootstrap.datepicker.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\bootstrap.v3.datetimepicker\bootstrap.v3.datetimepicker.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery.ui.layout\jquery.ui.layout.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery.validation\jquery.validation.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\select2\select2.d.ts" />

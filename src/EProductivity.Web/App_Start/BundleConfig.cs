@@ -16,7 +16,7 @@ namespace EProductivity.Web
                 .IncludeDirectory("~/Scripts/plugins","*.js",true));
             bundles.Add(new ScriptBundle("~/js/base")
                 .Include("~/Scripts/general.js"));
-
+            
             bundles.Add(new ScriptBundle("~/js/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 

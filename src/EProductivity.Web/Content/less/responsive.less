@@ -1,3 +1,4 @@
+@import "config.less";
 /*Responsive CSS*/
 @media (min-width: 1200px) {
 	.cl-sidebar .cl-vnavigation{
@@ -167,7 +168,7 @@
   #cl-wrapper .menu-space{min-height:0 !important;}
   #cl-wrapper.fixed-menu .menu-space .content, #cl-wrapper.fixed-menu.sb-collapsed .menu-space .content {overflow:visible;position:relative;}
   .sb-collapsed .cl-vnavigation .parent > a {
-    background: url("../images/arrow.png") no-repeat scroll right 14px top 18px rgba(0, 0, 0, 0);
+    background: url("@{imagesPath}/arrow.png") no-repeat scroll right 14px top 18px rgba(0, 0, 0, 0);
   }
   .sb-collapsed .cl-vnavigation li a span {opacity:1;}
   .sb-collapsed .cl-vnavigation li a i {
