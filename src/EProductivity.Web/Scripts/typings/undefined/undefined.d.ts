@@ -10,9 +10,6 @@ interface JQuery {
     nanoScroller(): JQuery;
     nanoScroller(it: any): JQuery;
 
-    tooltip(): JQuery;
-    tooltip(it: any): JQuery;
-
     popover(): JQuery;
     popover(it: any): JQuery;
 
@@ -21,9 +18,6 @@ interface JQuery {
 
     bootstrapSwitch(): JQuery;
     bootstrapSwitch(it: any): JQuery;
-
-    slider(): JQuery;
-    slider(it: any): JQuery;
 
     iCheck(): JQuery;
     iCheck(it: any): JQuery;

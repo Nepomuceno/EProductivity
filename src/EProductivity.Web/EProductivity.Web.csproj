@@ -498,7 +498,6 @@
     <TypeScriptCompile Include="Scripts\general.ts" />
     <TypeScriptCompile Include="Scripts\typings\bootstrap.datepicker\bootstrap.datepicker.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\bootstrap.v3.datetimepicker\bootstrap.v3.datetimepicker.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\jquery.ui.datetimepicker\jquery.ui.datetimepicker.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery.ui.layout\jquery.ui.layout.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
