@@ -1,0 +1,34 @@
+﻿@using System.Web.UI.WebControls
+@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+    @{
+        Html.RenderPartial("_MainMenu");
+    }
+</div>
+
+<div id="cl-wrapper">
+    <div class="cl-sidebar">
+        @{
+            Html.RenderPartial("_SideBar");
+        }
+    </div>
+
+    <div class="container-fluid" id="pcont">
+        <div class="page-head">
+            <h2>@ViewBag.Title</h2>
+            <ol class="breadcrumb">
+                <li><a href="#">Inicio</a></li>
+                <li class="active">@ViewBag.Title</li>
+            </ol>
+        </div>
+        <div class="cl-mcont">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+@Session scripts{
+    @RenderSection("scripts",false)
+}

@@ -1,0 +1,66 @@
+﻿@using System.Web.UI.WebControls
+@model EProductivity.Web.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<div class="sign-up-container" id="cl-wrapper">
+    <div class="middle-sign-up">
+        <div class="block-flat">
+            <div class="header">
+                <h3 class="text-center"><img class="logo-img" alt="logo" src="~/Content/images/logo.png"> Clean Zone</h3>
+            </div>
+            <div>
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="content">
+                        <h5 class="title text-center"><strong>Criar uma nova conta</strong></h5>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input name="nick" class="form-control parsley-validated" required="" type="text" placeholder="Username" parsley-error-container="#nick-error" parsley-trigger="change">
+                                </div>
+                                <div id="nick-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "e-mail" })
+                                </div>
+                                <div id="email-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Senha" })
+                                </div>
+                                <div id="password-error"></div>
+                            </div>
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirme a senha" })
+                                </div>
+                                <div id="confirmation-error"></div>
+                                <p class="spacer">By creating an account, you agree with the <a href="#">Terms</a> and <a href="#">Conditions</a>.</p>
+                                <button class="btn btn-block btn-success btn-rad btn-lg" type="submit">Registrar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="text-center out-links"><a href="#">© 2014 E-Productivity</a></div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

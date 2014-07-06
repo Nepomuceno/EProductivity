@@ -1,0 +1,63 @@
+﻿@using EProductivity.Web.Models
+@model LoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+    ViewBag.Title = "Log in";
+}
+<div id="cl-wrapper" class="login-container">
+    <div class="middle-login">
+        <div class="block-flat">
+            <div class="header">
+                <h3 class="text-center"><img class="logo-img" src="~/Content/images/logo.png" alt="logo" />E-Productivity</h3>
+            </div>
+            <div>
+                @using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { style = "margin-bottom: 0px !important;", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="content">
+                        <h4 class="title">Acesso</h4>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input type="text" name="email" placeholder="Usuario (e-mail)" id="username" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input type="password" name="password" placeholder="Senha" id="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="foot">
+                        <a class="btn btn-default" href="@Url.Action("Register","Account")" data-dismiss="modal" type="button">Registrar</a>
+                        <button class="btn btn-primary" data-dismiss="modal" type="submit">Entrar</button>
+                        @* Enable this once you have account confirmation enabled for password reset functionality
+                            <p>
+                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                            </p>*@
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="text-center out-links"><a href="#">&copy; 2014 E-productivity</a></div>
+    </div>
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
