@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using EProductivity.Core.Model;
+using EProductivity.Core.Service;
 using EProductivity.Core.Validator;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -19,17 +20,14 @@ namespace EProductivity.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private readonly IOrganizationService _organizationService;
         private EProductivityUserManager _userManager;
 
-        public AccountController()
+        public AccountController(IOrganizationService organizationService, EProductivityUserManager eProductivityUserManager)
         {
+            _organizationService = organizationService;
+            UserManager = eProductivityUserManager;
         }
-
-        public AccountController(EProductivityUserManager userManager)
-        {
-            UserManager = userManager;
-        }
-
         public EProductivityUserManager UserManager {
             get
             {
@@ -90,15 +88,18 @@ namespace EProductivity.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            Organization organization = null;
             if (Util.CpfValido(model.Document))
             {
-                
+                organization = await _organizationService.RetrieveOrganizationAzync(model.Document,
+                    OrganizationType.Individual);
             }
             else
             {
                 if (Util.CnpjValido(model.Document))
                 {
-
+                    organization = await _organizationService.RetrieveOrganizationAzync(model.Document,
+                        OrganizationType.Individual);
                 }
                 else
                 {
@@ -106,9 +107,10 @@ namespace EProductivity.Web.Controllers
                 }
 
             }
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && organization != null)
             {
-                var user = new EProductivityUser { UserName = model.Email, Email = model.Email };
+                var user = new EProductivityUser { UserName = model.Email, Email = model.Email , OrganizationId = organization.OrganizationId};
+                
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -122,10 +124,7 @@ namespace EProductivity.Web.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
-                else
-                {
-                    AddErrors(result);
-                }
+                AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form

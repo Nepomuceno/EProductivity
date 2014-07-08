@@ -1,11 +1,13 @@
 ﻿using System.Threading.Tasks;
 using EProductivity.Core.Model;
 using EProductivity.Core.Model.Data;
+using EProductivity.Core.Model.Data.EF;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using EProductivity.Web.Models;
+using Microsoft.Owin.Security.DataProtection;
 
 namespace EProductivity.Web
 {
@@ -16,47 +18,40 @@ namespace EProductivity.Web
         public EProductivityUserManager(IUserStore<EProductivityUser> store)
             : base(store)
         {
-        }
-
-        public static EProductivityUserManager Create(IdentityFactoryOptions<EProductivityUserManager> options, IOwinContext context) 
-        {
-            var manager = new EProductivityUserManager(new UserStore<EProductivityUser>(context.Get<EProductivityContext>()));
-            // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<EProductivityUser>(manager)
+            store = new UserStore<EProductivityUser>();
+            this.UserValidator = new UserValidator<EProductivityUser>(this)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
             };
             // Configure validation logic for passwords
-            manager.PasswordValidator = new PasswordValidator
+            this.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireUppercase = false,
             };
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug in here.
-            manager.RegisterTwoFactorProvider("PhoneCode", new PhoneNumberTokenProvider<EProductivityUser>
+            this.RegisterTwoFactorProvider("PhoneCode", new PhoneNumberTokenProvider<EProductivityUser>
             {
                 MessageFormat = "Your security code is: {0}"
             });
-            manager.RegisterTwoFactorProvider("EmailCode", new EmailTokenProvider<EProductivityUser>
+            this.RegisterTwoFactorProvider("EmailCode", new EmailTokenProvider<EProductivityUser>
             {
                 Subject = "Security Code",
                 BodyFormat = "Your security code is: {0}"
             });
-            manager.EmailService = new EmailService();
-            manager.SmsService = new SmsService();
-            var dataProtectionProvider = options.DataProtectionProvider;
-            if (dataProtectionProvider != null)
-            {
-                manager.UserTokenProvider = new DataProtectorTokenProvider<EProductivityUser>(dataProtectionProvider.Create("ASP.NET Identity"));
-            }
-            return manager;
+            this.EmailService = new EmailService();
+            this.SmsService = new SmsService();
+            //if (dataProtectionProvider != null)
+            //{
+            //    this.UserTokenProvider = new DataProtectorTokenProvider<EProductivityUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+            //}
         }
-    }
+   }
 
     public class EmailService : IIdentityMessageService
     {

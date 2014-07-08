@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using EProductivity.Core.Model;
 
-namespace EProductivity.Web.Models
+namespace EProductivity.Core.Model
 {
     public class Organization
     {

@@ -1,3 +1,5 @@
+using EProductivity.Core.Model.Data.EF;
+
 namespace EProductivity.Core.Migrations
 {
     using System;
@@ -5,7 +7,7 @@ namespace EProductivity.Core.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<EProductivity.Core.Model.Data.EProductivityContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<EProductivityContext>
     {
         public Configuration()
         {
@@ -13,7 +15,7 @@ namespace EProductivity.Core.Migrations
         }
         
 
-        protected override void Seed(EProductivity.Core.Model.Data.EProductivityContext context)
+        protected override void Seed(EProductivityContext context)
         {
         }
     }

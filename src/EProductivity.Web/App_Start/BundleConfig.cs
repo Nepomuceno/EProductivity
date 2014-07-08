@@ -38,7 +38,7 @@ namespace EProductivity.Web
                       "~/Content/style.css"));
 
             bundles.Add(new StyleBundle("~/css/plugins").IncludeDirectory(
-                      "~/Scripts/plugins","*.css"));
+                      "~/Scripts/plugins","*.css",true));
             
 
             // Set EnableOptimizations to false for debugging. For more information,

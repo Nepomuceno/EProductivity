@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using EProductivity.Core.Model.Data;
+using EProductivity.Core.Model.Data.EF;
+using EProductivity.Core.Service;
 using Microsoft.ApplicationInsights.Telemetry.Services;
+using SimpleInjector;
+using SimpleInjector.Integration.Web.Mvc;
 
 namespace EProductivity.Web
 {
@@ -18,6 +24,7 @@ namespace EProductivity.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ServerAnalytics.Start("beab1727-dedc-490b-91c2-1d9a5ffbb78d");
+
         }
         protected void Application_BeginRequest(object sender,EventArgs e)
         {
