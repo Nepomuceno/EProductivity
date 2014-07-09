@@ -10,7 +10,7 @@
             <span class="icon-bar"></span>
         </button>
         <!-- Brand Logo -->
-        <a class="navbar-brand" href="#"><span>Clean Zone</span></a>
+        <a class="navbar-brand" href="#"><span>E-Productivity</span></a>
     </div>
 
     <!-- Right Menu Side -->
@@ -18,9 +18,9 @@
         <ul class="nav navbar-nav">
             <!-- Left Menu Items -->
         </ul>
-        <ul class="nav navbar-nav navbar-right user-nav">
-            <!-- Right Profile Menu Items -->
-        </ul>
+        @{
+            Html.RenderPartial("~/Views/Shared/_LoginPartial.cshtml");
+        }
         <ul class="nav navbar-nav navbar-right not-nav">
             <!-- Right Menu Notification Items -->
         </ul>

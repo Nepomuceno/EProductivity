@@ -13,10 +13,5 @@ namespace EProductivity.Web.Controllers
         {
             return View();
         }
-
-        public ActionResult DashBoard()
-        {
-            return View();
-        }
     }
 }
