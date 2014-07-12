@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -26,10 +27,12 @@ namespace EProductivity.Web
             ServerAnalytics.Start("beab1727-dedc-490b-91c2-1d9a5ffbb78d");
 
         }
-        protected void Application_BeginRequest(object sender,EventArgs e)
+        protected void Application_BeginRequest(object sender, EventArgs e)
         {
+#if !DEBUG
             ServerAnalytics.BeginRequest();
             ServerAnalytics.CurrentRequest.LogEvent(Request.Url.AbsolutePath);
+#endif
         }
     }
 }

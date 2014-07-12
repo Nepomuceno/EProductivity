@@ -424,7 +424,7 @@
     <Content Include="Content\less\sidebar.css.map">
       <DependentUpon>sidebar.css</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\eproductivity2.pubxml" />
+    <None Include="Properties\PublishProfiles\eproductivity.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\plugins\bootstrap.switch\bootstrap-switch.css" />
     <Content Include="Scripts\plugins\bootstrap.switch\bootstrap-switch.min.js" />
@@ -694,7 +694,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2314</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2314/</IISUrl>
+          <IISUrl>http://localhost:61156/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
