@@ -17,7 +17,6 @@ namespace EProductivity.Core.Model.Data.EF
         {
 
         }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -26,21 +25,35 @@ namespace EProductivity.Core.Model.Data.EF
             modelBuilder.Configurations.Add(new EProductivityUserConfiguration());
             modelBuilder.Configurations.Add(new OrganizationConfiguration());
         }
-
         public static EProductivityContext Create()
         {
             return new EProductivityContext();
         }
         public IDbSet<Organization> OrganizationSet { get; set; } 
-
-        public IModelCollection<Organization, Guid> Organizations
+        public IModelCollection<Organization, int> Organizations
         {
-            get { return new ModelCollection<Organization, Guid>(this.OrganizationSet);}
+            get { return new ModelCollection<Organization, int>(this.OrganizationSet);}
         }
-
         IModelCollection<EProductivityUser, string> IModelContext.Users
         {
             get { return new ModelCollection<EProductivityUser, string>(Users); }
+        }
+        public IDbSet<WorkSample> WorkSampleSet { get; set; } 
+        public IModelCollection<WorkSample, long> WorkSamples
+        {
+            get { return new ModelCollection<WorkSample, long>(this.WorkSampleSet); }
+        }
+
+        public IDbSet<Tour> TourSet { get; set; }
+        public IModelCollection<Tour, long> Tours
+        {
+            get { return new ModelCollection<Tour, long>(this.TourSet); }
+        }
+
+        public IDbSet<Observation> ObservationSet { get; set; }
+        public IModelCollection<Observation, long> Observations
+        {
+            get { return new ModelCollection<Observation, long>(this.ObservationSet); }
         }
 
         public async Task<int> SaveAsync()

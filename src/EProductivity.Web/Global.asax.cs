@@ -25,7 +25,6 @@ namespace EProductivity.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ServerAnalytics.Start("beab1727-dedc-490b-91c2-1d9a5ffbb78d");
-
         }
         protected void Application_BeginRequest(object sender, EventArgs e)
         {

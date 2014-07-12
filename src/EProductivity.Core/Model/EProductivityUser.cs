@@ -9,7 +9,7 @@ namespace EProductivity.Core.Model
     public class EProductivityUser : IdentityUser
     {
         public Organization Organization { get; set; }
-        public Guid OrganizationId { get; set; }
+        public int OrganizationId { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<EProductivityUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

@@ -7,13 +7,13 @@ namespace EProductivity.Core.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class FirstMigration : IMigrationMetadata
+    public sealed partial class FirstDatabaseProject : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstDatabaseProject));
         
         string IMigrationMetadata.Id
         {
-            get { return "201407062238086_FirstMigration"; }
+            get { return "201407122242019_FirstDatabaseProject"; }
         }
         
         string IMigrationMetadata.Source

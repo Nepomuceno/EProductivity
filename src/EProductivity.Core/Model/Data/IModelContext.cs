@@ -5,9 +5,11 @@ namespace EProductivity.Core.Model.Data
 {
     public interface IModelContext
     {
-        IModelCollection<Organization, Guid> Organizations { get; }
+        IModelCollection<Organization, int> Organizations { get; }
         IModelCollection<EProductivityUser, string> Users { get; }
-        
+        IModelCollection<WorkSample, long> WorkSamples { get; }
+        IModelCollection<Tour, long> Tours { get; }
+        IModelCollection<Observation, long> Observations { get; }
         Task<int> SaveAsync();
     }
 }

@@ -53,11 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\NotFoundException.cs" />
-    <Compile Include="Migrations\201407062238086_FirstMigration.cs" />
-    <Compile Include="Migrations\201407062238086_FirstMigration.Designer.cs">
-      <DependentUpon>201407062238086_FirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201407122242019_FirstDatabaseProject.cs" />
+    <Compile Include="Migrations\201407122242019_FirstDatabaseProject.Designer.cs">
+      <DependentUpon>201407122242019_FirstDatabaseProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Data\EF\Configuration\EProductivityUserConfiguration.cs" />
+    <Compile Include="Model\Data\EF\Configuration\TourConfiguration.cs" />
+    <Compile Include="Model\Data\EF\Configuration\WorkSampleConfiguration.cs" />
+    <Compile Include="Model\Data\EF\Configuration\ObservationConfiguration.cs" />
     <Compile Include="Model\Data\EF\Configuration\OrganizationConfiguration.cs" />
     <Compile Include="Model\Data\EF\ModelCollection.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -67,7 +70,10 @@
     <Compile Include="Model\Data\IModelContext.cs" />
     <Compile Include="Model\EProductivityUser.cs" />
     <Compile Include="Model\Filters\OrganizationFilters.cs" />
+    <Compile Include="Model\Observation.cs" />
     <Compile Include="Model\Organization.cs" />
+    <Compile Include="Model\WorkSample.cs" />
+    <Compile Include="Model\Tour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\DataResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -84,8 +90,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407062238086_FirstMigration.resx">
-      <DependentUpon>201407062238086_FirstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407122242019_FirstDatabaseProject.resx">
+      <DependentUpon>201407122242019_FirstDatabaseProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\DataResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

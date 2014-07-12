@@ -424,7 +424,8 @@
     <Content Include="Content\less\sidebar.css.map">
       <DependentUpon>sidebar.css</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\eproductivity.pubxml" />
+    <None Include="Properties\PublishProfiles\eproductivity - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\eproductivity - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\plugins\bootstrap.switch\bootstrap-switch.css" />
     <Content Include="Scripts\plugins\bootstrap.switch\bootstrap-switch.min.js" />
