@@ -10,6 +10,9 @@ namespace EProductivity.Core.Model.Data
         IModelCollection<WorkSample, long> WorkSamples { get; }
         IModelCollection<Tour, long> Tours { get; }
         IModelCollection<Observation, long> Observations { get; }
+        IModelCollection<Worker, int> Workers { get; }
+        IModelCollection<Area, int> Areas { get; }
+        IModelCollection<Responsability, int> Responsabilities { get; }
         Task<int> SaveAsync();
     }
 }

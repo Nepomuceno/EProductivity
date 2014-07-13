@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace EProductivity.Core.Model
 {
-    public class WorkSample
+    public class Worker
     {
-        public long WorkSampleId { get; set; }
-        public List<Tour> Tours { get; set; }
-        public List<Worker> Workers { get; set; } 
+        public long WorkerId { get; set; }
+        public string Name { get; set; }
+        public Responsability Responsability { get; set; }
+        public int ReponsabilityId { get; set; }
+        public List<WorkSample> WorkSamples { get; set; }
         public Organization Organization { get; set; }
         public int OrganizationId { get; set; }
     }

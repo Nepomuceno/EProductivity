@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -20,6 +21,8 @@ namespace EProductivity.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private static Regex _digitsOnly = new Regex(@"[^\d]");   
+    
         private readonly IOrganizationService _organizationService;
         private EProductivityUserManager _userManager;
 
@@ -88,6 +91,10 @@ namespace EProductivity.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            if (!string.IsNullOrWhiteSpace(model.Document))
+            {
+                model.Document = _digitsOnly.Replace(model.Document, string.Empty);
+            }
             Organization organization = null;
             if (Util.CpfValido(model.Document))
             {

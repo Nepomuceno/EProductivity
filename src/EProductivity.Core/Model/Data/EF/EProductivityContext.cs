@@ -24,6 +24,12 @@ namespace EProductivity.Core.Model.Data.EF
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Configurations.Add(new EProductivityUserConfiguration());
             modelBuilder.Configurations.Add(new OrganizationConfiguration());
+            modelBuilder.Configurations.Add(new ObservationConfiguration());
+            modelBuilder.Configurations.Add(new WorkSampleConfiguration());
+            modelBuilder.Configurations.Add(new TourConfiguration());
+            modelBuilder.Configurations.Add(new WorkerConfiguration());
+            modelBuilder.Configurations.Add(new ResponsabilityConfiguration());
+            modelBuilder.Configurations.Add(new AreaConfiguration());
         }
         public static EProductivityContext Create()
         {
@@ -56,6 +62,23 @@ namespace EProductivity.Core.Model.Data.EF
             get { return new ModelCollection<Observation, long>(this.ObservationSet); }
         }
 
+        public IDbSet<Area> AreaSet { get; set; }
+        public IModelCollection<Area, int> Areas
+        {
+            get{ return new ModelCollection<Area, int>(this.AreaSet);}
+        }
+
+        public IDbSet<Worker> WorkerSet { get; set; }
+        public IModelCollection<Worker, int> Workers
+        {
+            get { return new ModelCollection<Worker, int>(this.WorkerSet);}
+        }
+
+        public IDbSet<Responsability> ResponsabilitySet { get; set; }
+        public IModelCollection<Responsability, int> Responsabilities
+        {
+            get { return new ModelCollection<Responsability, int>(this.ResponsabilitySet);}
+        }
         public async Task<int> SaveAsync()
         {
             return await SaveChangesAsync();
