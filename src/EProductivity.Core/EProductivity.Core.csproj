@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201407122242019_FirstDatabaseProject.Designer.cs">
       <DependentUpon>201407122242019_FirstDatabaseProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407130014034_IncludingWorker.cs" />
+    <Compile Include="Migrations\201407130014034_IncludingWorker.Designer.cs">
+      <DependentUpon>201407130014034_IncludingWorker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Area.cs" />
     <Compile Include="Model\Data\EF\Configuration\AreaConfiguration.cs" />
     <Compile Include="Model\Data\EF\Configuration\EProductivityUserConfiguration.cs" />
@@ -98,6 +102,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201407122242019_FirstDatabaseProject.resx">
       <DependentUpon>201407122242019_FirstDatabaseProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407130014034_IncludingWorker.resx">
+      <DependentUpon>201407130014034_IncludingWorker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\DataResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

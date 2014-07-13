@@ -55,8 +55,8 @@ namespace EProductivity.Core.Migrations
                         Worker_WorkerId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => new { t.WorkSample_WorkSampleId, t.Worker_WorkerId })
-                .ForeignKey("dbo.WorkSamples", t => t.WorkSample_WorkSampleId, cascadeDelete: true)
-                .ForeignKey("dbo.Workers", t => t.Worker_WorkerId, cascadeDelete: true)
+                .ForeignKey("dbo.WorkSamples", t => t.WorkSample_WorkSampleId, cascadeDelete: false)
+                .ForeignKey("dbo.Workers", t => t.Worker_WorkerId, cascadeDelete: false)
                 .Index(t => t.WorkSample_WorkSampleId)
                 .Index(t => t.Worker_WorkerId);
             
