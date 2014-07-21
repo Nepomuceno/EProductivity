@@ -30,6 +30,8 @@ namespace EProductivity.Core.Model.Data.EF
             modelBuilder.Configurations.Add(new WorkerConfiguration());
             modelBuilder.Configurations.Add(new ResponsabilityConfiguration());
             modelBuilder.Configurations.Add(new AreaConfiguration());
+            modelBuilder.Configurations.Add(new ActivitityResponsabilityConfiguration());
+            modelBuilder.Configurations.Add(new ActivityConfiguration());
         }
         public static EProductivityContext Create()
         {
@@ -78,6 +80,18 @@ namespace EProductivity.Core.Model.Data.EF
         public IModelCollection<Responsability, int> Responsabilities
         {
             get { return new ModelCollection<Responsability, int>(this.ResponsabilitySet);}
+        }
+
+        public IDbSet<Activity> ActivitySet { get; set; }
+        public IModelCollection<Activity, long> Activities
+        {
+            get { return new ModelCollection<Activity, long>(this.ActivitySet); }
+        }
+        public IDbSet<ActivityResponsability> ActivityResponsabilitySet { get; set; }
+
+        public IModelCollection<ActivityResponsability, long> ActivityResponsabilities
+        {
+            get { return new ModelCollection<ActivityResponsability, long>(this.ActivityResponsabilitySet); }
         }
         public async Task<int> SaveAsync()
         {

@@ -182,11 +182,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WorkersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DropdownOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -649,6 +652,8 @@
     <Content Include="Scripts\plugins\jquery.flot\NEWS.md" />
     <Content Include="Scripts\plugins\jquery.flot\PLUGINS.md" />
     <Content Include="Scripts\plugins\jquery.flot\README.md" />
+    <Content Include="Views\Workers\Create.cshtml" />
+    <Content Include="Views\Workers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

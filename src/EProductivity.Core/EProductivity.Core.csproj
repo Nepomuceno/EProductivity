@@ -53,20 +53,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\NotFoundException.cs" />
-    <Compile Include="Migrations\201407122242019_FirstDatabaseProject.cs" />
-    <Compile Include="Migrations\201407122242019_FirstDatabaseProject.Designer.cs">
-      <DependentUpon>201407122242019_FirstDatabaseProject.cs</DependentUpon>
+    <Compile Include="Migrations\201407191401026_DatabaseBase.cs" />
+    <Compile Include="Migrations\201407191401026_DatabaseBase.Designer.cs">
+      <DependentUpon>201407191401026_DatabaseBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407130014034_IncludingWorker.cs" />
-    <Compile Include="Migrations\201407130014034_IncludingWorker.Designer.cs">
-      <DependentUpon>201407130014034_IncludingWorker.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Model\Activity.cs" />
+    <Compile Include="Model\ActivityResponsability.cs" />
     <Compile Include="Model\Area.cs" />
     <Compile Include="Model\Data\EF\Configuration\AreaConfiguration.cs" />
     <Compile Include="Model\Data\EF\Configuration\EProductivityUserConfiguration.cs" />
     <Compile Include="Model\Data\EF\Configuration\ResponsabilityConfiguration.cs" />
     <Compile Include="Model\Data\EF\Configuration\TourConfiguration.cs" />
     <Compile Include="Model\Data\EF\Configuration\WorkerConfiguration.cs" />
+    <Compile Include="Model\Data\EF\Configuration\ActivityConfiguration.cs" />
+    <Compile Include="Model\Data\EF\Configuration\ActivitityResponsabilityConfiguration.cs" />
     <Compile Include="Model\Data\EF\Configuration\WorkSampleConfiguration.cs" />
     <Compile Include="Model\Data\EF\Configuration\ObservationConfiguration.cs" />
     <Compile Include="Model\Data\EF\Configuration\OrganizationConfiguration.cs" />
@@ -100,11 +100,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407122242019_FirstDatabaseProject.resx">
-      <DependentUpon>201407122242019_FirstDatabaseProject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407130014034_IncludingWorker.resx">
-      <DependentUpon>201407130014034_IncludingWorker.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407191401026_DatabaseBase.resx">
+      <DependentUpon>201407191401026_DatabaseBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\DataResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

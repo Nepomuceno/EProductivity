@@ -19,6 +19,7 @@ using EProductivity.Web.Models;
 namespace EProductivity.Web.Controllers
 {
     [Authorize]
+    [RoutePrefix("Account")]
     public class AccountController : Controller
     {
         private static Regex _digitsOnly = new Regex(@"[^\d]");   
@@ -45,6 +46,7 @@ namespace EProductivity.Web.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
+        [Route("Login")]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -56,6 +58,7 @@ namespace EProductivity.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("Login")]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -79,6 +82,7 @@ namespace EProductivity.Web.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
+        [Route("Register")]
         public ActionResult Register()
         {
             return View();
@@ -89,6 +93,7 @@ namespace EProductivity.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("Register")]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (!string.IsNullOrWhiteSpace(model.Document))
@@ -141,6 +146,7 @@ namespace EProductivity.Web.Controllers
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
+        [Route("ConfirmEmail")]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null) 
@@ -163,6 +169,7 @@ namespace EProductivity.Web.Controllers
         //
         // GET: /Account/ForgotPassword
         [AllowAnonymous]
+        [Route("ForgotPassword")]
         public ActionResult ForgotPassword()
         {
             return View();
@@ -173,6 +180,7 @@ namespace EProductivity.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("ForgotPassword")]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
             if (ModelState.IsValid)
@@ -199,6 +207,7 @@ namespace EProductivity.Web.Controllers
         //
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]
+        [Route("ForgotPasswordConfirmation")]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
@@ -207,6 +216,7 @@ namespace EProductivity.Web.Controllers
         //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
+        [Route("ResetPassword")]
         public ActionResult ResetPassword(string code)
         {
             if (code == null) 
@@ -221,6 +231,7 @@ namespace EProductivity.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("ResetPassword")]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
             if (ModelState.IsValid)
@@ -250,6 +261,7 @@ namespace EProductivity.Web.Controllers
         //
         // GET: /Account/ResetPasswordConfirmation
         [AllowAnonymous]
+        [Route("ResetPasswordConfirmation")]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -259,6 +271,7 @@ namespace EProductivity.Web.Controllers
         // POST: /Account/Disassociate
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Disassociate")]
         public async Task<ActionResult> Disassociate(string loginProvider, string providerKey)
         {
             ManageMessageId? message = null;
@@ -278,6 +291,7 @@ namespace EProductivity.Web.Controllers
 
         //
         // GET: /Account/Manage
+        [Route("Manage")]
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -295,6 +309,7 @@ namespace EProductivity.Web.Controllers
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Manage")]
         public async Task<ActionResult> Manage(ManageUserViewModel model)
         {
             bool hasPassword = HasPassword();
@@ -348,6 +363,7 @@ namespace EProductivity.Web.Controllers
         // POST: /Account/LinkLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("LinkLogin")]
         public ActionResult LinkLogin(string provider)
         {
             // Request a redirect to the external login provider to link a login for the current user
@@ -375,6 +391,7 @@ namespace EProductivity.Web.Controllers
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("LogOff")]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();

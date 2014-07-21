@@ -11,9 +11,10 @@ namespace EProductivity.Core.Model
         public long WorkerId { get; set; }
         public string Name { get; set; }
         public Responsability Responsability { get; set; }
-        public int ReponsabilityId { get; set; }
+        public long ResponsabilityId { get; set; }
         public List<WorkSample> WorkSamples { get; set; }
         public Organization Organization { get; set; }
-        public int OrganizationId { get; set; }
+        public long OrganizationId { get; set; }
+        public List<Observation> Observations { get; set; }
     }
 }

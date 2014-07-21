@@ -12,6 +12,6 @@ namespace EProductivity.Core.Model
         public List<Tour> Tours { get; set; }
         public List<Worker> Workers { get; set; } 
         public Organization Organization { get; set; }
-        public int OrganizationId { get; set; }
+        public long OrganizationId { get; set; }
     }
 }

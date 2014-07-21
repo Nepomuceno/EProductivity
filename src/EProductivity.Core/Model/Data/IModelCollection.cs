@@ -9,7 +9,7 @@ namespace EProductivity.Core.Model.Data
         /// </summary>
         /// <param name="key">The entity primary key</param>
         /// <returns></returns>
-        
+
         T this[TKey key] { get; }
         /// <summary>
         /// Gets the entity by its Id or throws NotFoundException 
@@ -30,7 +30,6 @@ namespace EProductivity.Core.Model.Data
         /// <param name="entity">the entity do be removed</param>
         /// <returns>The collection with the entity removed</returns>
         IModelCollection<T, TKey> Remove(T entity);
-
 
     }
 }
