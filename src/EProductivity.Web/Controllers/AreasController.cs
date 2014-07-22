@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using EProductivity.Core.Model;
 using EProductivity.Core.Model.Data;
 using EProductivity.Web.Models;
 
@@ -26,7 +28,8 @@ namespace EProductivity.Web.Controllers
             var areas = _context.Areas.Select(a => new AreaViewModel
             {
                 Name = a.Name,
-                Id = a.AreaId
+                Id = a.AreaId,
+                TotalResponsabilities = a.Responsabilities.Count
             });
             return View(areas);
         }
@@ -38,9 +41,15 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("new"),HttpPost]
-        public ActionResult Create(AreaViewModel area)
+        public async Task<ActionResult> Create(AreaViewModel area)
         {
-            return View();
+            _context.Areas.Add(new Area()
+            {
+                Name = area.Name,
+                OrganizationId = (await _userManager.FindByNameAsync(User.Identity.Name)).OrganizationId
+            });
+            await _context.SaveAsync();
+            return RedirectToAction("Index");
         }
 
         [Route("delete"), HttpGet]
@@ -62,6 +71,8 @@ namespace EProductivity.Web.Controllers
     {
         public string Name { get; set; }
         public int Id { get; set; }
+        public int TotalResponsabilities { get; set; }
+        public IEnumerable<ResponsabilityViewModel> Responsabilities { get; set; }
     }
 
 

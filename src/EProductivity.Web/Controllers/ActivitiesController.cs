@@ -8,13 +8,13 @@ using EProductivity.Web.Models;
 
 namespace EProductivity.Web.Controllers
 {
-    [RoutePrefix("responsability")]
-    public class ResponsabilityController : Controller
+    [RoutePrefix("activity")]
+    public class ActivitiesController : Controller
     {
         private readonly IModelContext _context;
         private readonly EProductivityUserManager _userManager;
 
-        public ResponsabilityController(IModelContext context, EProductivityUserManager userManager)
+        public ActivitiesController(IModelContext context, EProductivityUserManager userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -23,12 +23,12 @@ namespace EProductivity.Web.Controllers
         [Route("")]
         public ActionResult Index()
         {
-            var areas = _context.Areas.Select(a => new ResponsabilityViewModel
+            var activities = _context.Activities.Select(a => new ActivityViewModel
             {
                 Name = a.Name,
-                Id = a.AreaId
+                Id = a.ActivityId
             });
-            return View(areas);
+            return View(activities);
         }
 
         [Route("new"),HttpGet]
@@ -38,7 +38,7 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("new"),HttpPost]
-        public ActionResult Create(ResponsabilityViewModel responsability)
+        public ActionResult Create(ActivityViewModel activity)
         {
             return View();
         }
@@ -53,24 +53,26 @@ namespace EProductivity.Web.Controllers
         public async Task<JsonResult> GetResponsabilityDropDown()
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-            var result = _context.Responsabilities.Where(a => a.OrganizationId == currentUser.OrganizationId).GroupBy(r => r.Area).Select(a => new Category()
+            var result = _context.Activities.Where(a => a.OrganizationId == currentUser.OrganizationId).Select(a => new Option()
             {
-                text = a.Key.Name,
-                children = a.Select(r => new Option()
-                {
-                    id = r.ResponsabilityId.ToString(CultureInfo.InvariantCulture),
-                    text = r.Name
-                })
+                
+                id = a.ActivityId.ToString(CultureInfo.InvariantCulture),
+                text = a.Name
+                
             });
-            return Json(new DropdownOptions {more = false,results = result}, "application/json", JsonRequestBehavior.AllowGet);
+            return Json(new DropdownOptions {more = false,results = new List<Category>{new Category()
+            {
+                text = "Atividades",
+                children = result
+            }
+            }}, "application/json", JsonRequestBehavior.AllowGet);
         }
     }
-
-    public class ResponsabilityViewModel
+    public class ActivityViewModel
     {
         public string Name { get; set; }
-        public int Id { get; set; }
+        public long Id { get; set; }
+        public bool BaseActivity { get; set; }
     }
-
 
 }

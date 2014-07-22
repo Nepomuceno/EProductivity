@@ -182,6 +182,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\ResponsabilitiesController.cs" />
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
@@ -654,6 +656,8 @@
     <Content Include="Scripts\plugins\jquery.flot\README.md" />
     <Content Include="Views\Workers\Create.cshtml" />
     <Content Include="Views\Workers\Index.cshtml" />
+    <Content Include="Views\Areas\Index.cshtml" />
+    <Content Include="Views\Areas\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
