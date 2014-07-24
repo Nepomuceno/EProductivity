@@ -21,4 +21,6 @@ interface JQuery {
 
     iCheck(): JQuery;
     iCheck(it: any): JQuery;
+
+    valid(): JQuery;
 }

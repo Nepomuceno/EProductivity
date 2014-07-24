@@ -7,7 +7,7 @@ namespace EProductivity.Core.Model
         public long ResponsabilityId { get; set; }
         public string Name { get; set; }
         public Area Area { get; set; }
-        public int AreaId { get; set; }
+        public long AreaId { get; set; }
         public Organization Organization { get; set; }
         public long OrganizationId { get; set; }
         public List<Worker> Workers { get; set; }

@@ -8,10 +8,10 @@ namespace EProductivity.Web.Controllers
 {
     [Authorize]
     [RoutePrefix("")]
-    public class HomeController : Controller
+    public class HomeController : AsyncController
     {
         [Route("")]
-        public ActionResult Index()
+        public ActionResult Dashboard()
         {
             return View();
         }

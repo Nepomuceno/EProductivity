@@ -1,3 +1,4 @@
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,15 +19,24 @@ namespace EProductivity.Web.Controllers
             _context = context;
             _userManager = userManager;
         }
-
-        [Route("")]
-        public ActionResult Index()
+        [Route(""),HttpGet]
+        public ActionResult SelectArea()
         {
-            var areas = _context.Areas.Select(a => new ResponsabilityViewModel
+            return View();
+        }
+
+        [Route("{areaId}")]
+        public ActionResult Index(int areaId)
+        {
+            var area = _context.Responsabilities[areaId];
+            var areas = _context.Responsabilities.Include(r => r.Area).Where(r => r.AreaId == areaId).Select(r => new ResponsabilityViewModel
             {
-                Name = a.Name,
-                Id = a.AreaId
+                Name = r.Name,
+                Id = r.ResponsabilityId,
+                Area = r.Area.Name,
+                AreaId = r.AreaId
             });
+            ViewBag.Area = area;
             return View(areas);
         }
 
@@ -49,10 +59,10 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("dropdown"),HttpGet,HttpPost]
-        public async Task<JsonResult> GetResponsabilityDropDown()
+        public async Task<JsonResult> GetResponsabilityDropDown(int areaId)
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-            var result = _context.Responsabilities.Where(a => a.OrganizationId == currentUser.OrganizationId).GroupBy(r => r.Area).Select(a => new Category()
+            var result = _context.Responsabilities.Where(a => a.OrganizationId == currentUser.OrganizationId && a.AreaId == areaId).GroupBy(r => r.Area).Select(a => new Category()
             {
                 text = a.Key.Name,
                 children = a.Select(r => new Option()
@@ -67,7 +77,9 @@ namespace EProductivity.Web.Controllers
     public class ResponsabilityViewModel
     {
         public string Name { get; set; }
-        public int Id { get; set; }
+        public long Id { get; set; }
+        public string Area { get; set; }
+        public long AreaId { get; set; }
     }
 
 }

@@ -11,7 +11,7 @@ using EProductivity.Web.Models;
 namespace EProductivity.Web.Controllers
 {
     [RoutePrefix("area")]
-    public class AreasController : Controller
+    public class AreasController : AsyncController
     {
         private readonly IModelContext _context;
         private readonly EProductivityUserManager _userManager;
@@ -53,16 +53,19 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("delete"), HttpGet]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
+            var activity = _context.Activities[id];
+            _context.Activities.Remove(activity);
+            await _context.SaveAsync();
+            return RedirectToAction("Index");
         }
 
-        [Route("dropdown"),HttpGet,HttpPost]
+        [Route("dropdown"),HttpGet]
         public async Task<JsonResult> GetAreasDropDown()
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-            var result = _context.Areas.Where(a => a.OrganizationId == currentUser.OrganizationId).Select(a => new Option(){id = a.AreaId.ToString(CultureInfo.InvariantCulture), text = a.Name});
+            var result = _context.Areas.Where(a => a.OrganizationId == currentUser.OrganizationId).Select(a => new Option(){id = a.AreaId.ToString(), text = a.Name});
             return Json(new DropdownOptions {more = false,results = new List<Category>{new Category {text = "Areas", children = result}}}, "application/json", JsonRequestBehavior.AllowGet);
         }
     }
@@ -70,7 +73,7 @@ namespace EProductivity.Web.Controllers
     public class AreaViewModel
     {
         public string Name { get; set; }
-        public int Id { get; set; }
+        public long Id { get; set; }
         public int TotalResponsabilities { get; set; }
         public IEnumerable<ResponsabilityViewModel> Responsabilities { get; set; }
     }

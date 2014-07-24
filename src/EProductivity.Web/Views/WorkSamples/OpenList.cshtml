@@ -1,0 +1,31 @@
+﻿@model List<EProductivity.Web.Controllers.WorkSampleViewModel>
+
+<div class="table-responsive">
+    <table class="table no-border hover">
+        <thead class="no-border">
+            <tr>
+                <th><strong>Nome</strong></th>
+                <th><strong>Data Inicio</strong></th>
+                <th><strong>Area</strong></th>
+                <th><strong>Tours Completos</strong></th>
+                <th><strong>Trabalhadores</strong></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="no-border-y">
+            @{
+                foreach (var workerViewModel in Model)
+                {
+                    <tr>
+                        <td>@workerViewModel.Name</td>
+                        <td>@workerViewModel.StartDate</td>
+                        <td>@workerViewModel.Area</td>
+                        <td>@workerViewModel.CompletedTours</td>
+                        <td>@workerViewModel.TotalWorkers</td>
+                        <td><a class="btn btn-primary btn-flat btn-sm" href="@Url.Action("Details","WorkSamples",new{workSampleId = workerViewModel.Id})"><i class="fa fa-file"></i> Detalhes</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -30,16 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -53,9 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\NotFoundException.cs" />
-    <Compile Include="Migrations\201407191401026_DatabaseBase.cs" />
-    <Compile Include="Migrations\201407191401026_DatabaseBase.Designer.cs">
-      <DependentUpon>201407191401026_DatabaseBase.cs</DependentUpon>
+    <Compile Include="Migrations\201407242239161_FirstDatabaseCreation.cs" />
+    <Compile Include="Migrations\201407242239161_FirstDatabaseCreation.Designer.cs">
+      <DependentUpon>201407242239161_FirstDatabaseCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Activity.cs" />
     <Compile Include="Model\ActivityResponsability.cs" />
@@ -97,16 +101,23 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Scripts\jquery-2.1.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407191401026_DatabaseBase.resx">
-      <DependentUpon>201407191401026_DatabaseBase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407242239161_FirstDatabaseCreation.resx">
+      <DependentUpon>201407242239161_FirstDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\DataResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DataResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

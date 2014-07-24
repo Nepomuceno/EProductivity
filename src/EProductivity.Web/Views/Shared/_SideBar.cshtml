@@ -1,17 +1,34 @@
-﻿
-<!-- Collapse Toggle -->
+﻿<!-- Collapse Toggle -->
 <div class="cl-toggle"><i class="fa fa-li"></i></div>
 
 <!-- Menu Items -->
 <div class="cl-navblock">
     <ul class="cl-vnavigation">
         <li>
-            <a href="#"><i class="fa fa-list"></i>Cadastros basicos</a>
+            <a href="#"><i class="fa fa-list"></i> Cadastros basicos</a>
             <ul class="sub-menu">
-                <li><a href="@Url.Action("Index","Areas")">Areas</a></li>
-                <li><a href="@Url.Action("Index","Responsabilities")">Responsabilidades</a></li>
-                <li><a href="@Url.Action("Index","Activities")">Atividades</a></li>
-                <li><a href="@Url.Action("Index","Workers")">Trabalhadores</a></li>
+                <li>
+                    <a href="@Url.Action("Index","Areas")">Areas</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("SelectArea","Responsabilities")">Responsabilidades</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","Activities")">Atividades</a>
+                </li>
+                <li><a href="@Url.Action("Index","Workers")">Trabalhadores</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-list-alt"></i> Amostragens</a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("Index","WorkSamples")">Lista</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Create", "WorkSamples")">Nova</a>
+                </li>
             </ul>
         </li>
     </ul>

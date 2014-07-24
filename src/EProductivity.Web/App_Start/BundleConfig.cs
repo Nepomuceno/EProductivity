@@ -9,13 +9,17 @@ namespace EProductivity.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/js/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/js/chart")
+                        .Include("~/Scripts/Highcharts-4.0.1/js/highcharts-all.js"));
+
+            bundles.Add(new ScriptBundle("~/js/jquery")
+                        .Include("~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/js/plugins")
-                .IncludeDirectory("~/Scripts/plugins","*.js",true));
+                        .IncludeDirectory("~/Scripts/plugins","*.js",true));
+            
             bundles.Add(new ScriptBundle("~/js/base")
-                .Include("~/Scripts/general.js"));
+                        .Include("~/Scripts/general.js"));
             
             bundles.Add(new ScriptBundle("~/js/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -25,13 +29,6 @@ namespace EProductivity.Web
             bundles.Add(new ScriptBundle("~/js/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/js/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
-            bundles.Add(new StyleBundle("~/css/base").Include(
-                      "~/Content/bootstrap.css",
-                      "~/fonts/font-awesome-4/css/font-awesome.css"));
 
             bundles.Add(new StyleBundle("~/css/template").Include(
                       "~/Content/pygments.css",

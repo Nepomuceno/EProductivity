@@ -9,7 +9,7 @@ using EProductivity.Web.Models;
 namespace EProductivity.Web.Controllers
 {
     [RoutePrefix("activity")]
-    public class ActivitiesController : Controller
+    public class ActivitiesController : AsyncController
     {
         private readonly IModelContext _context;
         private readonly EProductivityUserManager _userManager;
@@ -31,41 +31,45 @@ namespace EProductivity.Web.Controllers
             return View(activities);
         }
 
-        [Route("new"),HttpGet]
+        [Route("new"), HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        [Route("new"),HttpPost]
+        [Route("new"), HttpPost]
         public ActionResult Create(ActivityViewModel activity)
         {
             return View();
         }
 
         [Route("delete"), HttpGet]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(long id)
         {
-            return View();
+            var activity = _context.Activities[id];
+            _context.Activities.Remove(activity);
+            await _context.SaveAsync();
+            return RedirectToAction("Index");
         }
 
-        [Route("dropdown"),HttpGet,HttpPost]
-        public async Task<JsonResult> GetResponsabilityDropDown()
+        [Route("dropdown"), HttpGet]
+        public async Task<ActionResult> GetResponsabilityDropDown()
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
             var result = _context.Activities.Where(a => a.OrganizationId == currentUser.OrganizationId).Select(a => new Option()
             {
-                
                 id = a.ActivityId.ToString(CultureInfo.InvariantCulture),
                 text = a.Name
-                
             });
-            return Json(new DropdownOptions {more = false,results = new List<Category>{new Category()
-            {
-                text = "Atividades",
-                children = result
-            }
-            }}, "application/json", JsonRequestBehavior.AllowGet);
+            return Json(new DropdownOptions {
+                                                more = false,
+                                                results = new List<Category>{new Category()
+                                                                        {
+                                                                            text = "Atividades",
+                                                                            children = result
+                                                                        }
+                                            }
+            }, "application/json", JsonRequestBehavior.AllowGet);
         }
     }
     public class ActivityViewModel

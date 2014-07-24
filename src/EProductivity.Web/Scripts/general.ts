@@ -9,12 +9,13 @@
         public select2: boolean = false,
         public tags: boolean = false,
         public slider: boolean = false) {
-
     }
+
     toggleSideBar = () => {
         var b = $("#sidebar-collapse")[0];
         var w = $("#cl-wrapper");
         var s = $(".cl-sidebar");
+
 
         if (w.hasClass("sb-collapsed")) {
             $(".fa", b).addClass("fa-angle-left").removeClass("fa-angle-right");

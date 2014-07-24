@@ -1,0 +1,49 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Responsabilidades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-12 col-md-12">
+    <div class="block-flat">
+        <div class="header">
+            <h3>@ViewBag.Title</h3>
+        </div>
+        <div class="content">
+            @using (Html.BeginForm("Index", "Responsabilities", null, FormMethod.Post, new Dictionary<string, object> { { "class", "form-horizontal" } }))
+            {
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="areaId">Area</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" id="areaId" required name="areaId" type="text" placeholder="Nome">
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-2">
+                        <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        $("#areaId").select2({
+            placeholder: "Escolha uma area",
+            minimumInputLength: 0,
+            ajax: {
+                url: '@Url.Action("GetAreasDropDown","Areas")',
+                data: function (term, page) {
+                    return {
+                        q: term, // search term
+                        page_limit: 10,
+                    };
+                },
+                results: function (data, page) {
+                    return data;
+                }
+            }
+        });
+    </script>
+}

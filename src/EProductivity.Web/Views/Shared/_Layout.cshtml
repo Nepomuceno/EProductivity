@@ -1,5 +1,4 @@
-﻿@using System.Web.UI.WebControls
-@{
+﻿@{
     Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 
@@ -20,12 +19,13 @@
         <div class="page-head">
             <h2>@ViewBag.Title</h2>
             <ol class="breadcrumb">
-                <li><a href="#">Inicio</a></li>
+                <li><a href="@Url.Action("Dashboard","Home")">Inicio</a></li>
                 <li class="active">@ViewBag.Title</li>
             </ol>
         </div>
         <div class="cl-mcont">
             @RenderBody()
+            <div class="clearfix"></div>
         </div>
     </div>
 </div>
