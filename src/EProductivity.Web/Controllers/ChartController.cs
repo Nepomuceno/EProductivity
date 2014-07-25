@@ -69,7 +69,7 @@ namespace EProductivity.Web.Controllers
                          },
                          new Point()
                          {
-                             Color = Color.DarkOrange,
+                             Color = Color.DarkBlue,
                              Name = "Auxiliar",
                              Y = 45
                          },
