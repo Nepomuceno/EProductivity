@@ -8,6 +8,6 @@ namespace EProductivity.Core.Model
         public string Name { get; set; }
         public Organization Organization { get; set; }
         public long OrganizationId { get; set; }
-        public List<Responsability> Responsabilities { get; set; }
+        public List<Function> Functions { get; set; }
     }
 }

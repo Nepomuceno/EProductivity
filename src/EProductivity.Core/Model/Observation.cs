@@ -11,8 +11,8 @@ namespace EProductivity.Core.Model
         public long ObservationId { get; set; }
         public Worker Worker { get; set; }
         public long WorkerId { get; set; }
-        public Responsability Responsability { get; set; }
-        public long ResponsabilityId { get; set; }
+        public Function Function { get; set; }
+        public long FunctionId { get; set; }
         public Activity Activity { get; set; }
         public long ActivityId { get; set; }
         public Tour Tour { get; set; }

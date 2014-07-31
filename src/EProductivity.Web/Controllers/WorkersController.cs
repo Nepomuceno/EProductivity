@@ -31,8 +31,8 @@ namespace EProductivity.Web.Controllers
             {
                 Name = w.Name,
                 Id = w.WorkerId,
-                Area = w.Responsability.Area.Name,
-                Responsability = w.Responsability.Name
+                Area = w.Function.Area.Name,
+                Function = w.Function.Name
             });
             return View(workers);
         }
@@ -59,8 +59,8 @@ namespace EProductivity.Web.Controllers
         public async Task<JsonResult> GetWorkersDropDown()
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-            var result = _context.Workers.Where(w => w.OrganizationId == currentUser.OrganizationId).Include(w => w.Responsability.Area)
-                .GroupBy(w => w.Responsability.Area).Select(g => new Category
+            var result = _context.Workers.Where(w => w.OrganizationId == currentUser.OrganizationId).Include(w => w.Function.Area)
+                .GroupBy(w => w.Function.Area).Select(g => new Category
                 {
                     text = g.Key.Name,
                     children = g.Select(w => new Option
@@ -75,15 +75,4 @@ namespace EProductivity.Web.Controllers
 
 
     }
-
-    public class WorkerViewModel
-    {
-        public string Name { get; set; }
-        public long Id { get; set; }
-        public string Area { get; set; }
-        public string Responsability { get; set; }
-    }
-
-
-
 }

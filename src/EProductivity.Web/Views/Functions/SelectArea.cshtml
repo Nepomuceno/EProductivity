@@ -1,7 +1,7 @@
 ﻿@model dynamic
 
 @{
-    ViewBag.Title = "Responsabilidades";
+    ViewBag.Title = "";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,7 +11,7 @@
             <h3>@ViewBag.Title</h3>
         </div>
         <div class="content">
-            @using (Html.BeginForm("Index", "Responsabilities", null, FormMethod.Post, new Dictionary<string, object> { { "class", "form-horizontal" } }))
+            @using (Html.BeginForm("Index", "Functions", null, FormMethod.Post, new Dictionary<string, object> { { "class", "form-horizontal" } }))
             {
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="areaId">Area</label>

@@ -29,7 +29,7 @@ namespace EProductivity.Web.Controllers
             {
                 Name = a.Name,
                 Id = a.AreaId,
-                TotalResponsabilities = a.Responsabilities.Count
+                TotalResponsabilities = a.Functions.Count
             });
             return View(areas);
         }
@@ -69,14 +69,4 @@ namespace EProductivity.Web.Controllers
             return Json(new DropdownOptions {more = false,results = new List<Category>{new Category {text = "Areas", children = result}}}, "application/json", JsonRequestBehavior.AllowGet);
         }
     }
-
-    public class AreaViewModel
-    {
-        public string Name { get; set; }
-        public long Id { get; set; }
-        public int TotalResponsabilities { get; set; }
-        public IEnumerable<ResponsabilityViewModel> Responsabilities { get; set; }
-    }
-
-
 }

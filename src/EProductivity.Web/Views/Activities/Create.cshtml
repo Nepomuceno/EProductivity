@@ -14,13 +14,31 @@
             @using (Html.BeginForm("Create", "Activities", null, FormMethod.Post, new Dictionary<string, object> { { "class", "form-horizontal" } }))
             {
                 <div class="form-group">
+                    <label class="col-sm-3 control-label" for="area">Area</label>
+                    <div class="col-sm-5">
+                        <select id="area" name="areaId">
+                            <option value="1">Administrativo</option>
+                            <option value="2">Almoxerifado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="function">Função</label>
+                    <div class="col-sm-5">
+                        <select id="function" name="functionId">
+                            <option value="1">Analista</option>
+                            <option value="2">Tecnico</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label" for="name">Nome</label>
-                    <div class="col-sm-7">
+                    <div class="col-sm-5">
                         <input class="form-control" id="name" required name="name" type="text" placeholder="Nome">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="col-sm-offset-3 col-sm-5">
                         <button class="btn btn-primary" type="submit">Salvar</button>
                     </div>
                 </div>
@@ -28,3 +46,20 @@
         </div>
     </div>
 </div>
+@section scripts
+{
+    <script type="text/javascript">
+        $("#area").select2({
+                placeholder: "Selecione uma area"
+            }).on("selected",
+            function(e) {
+                 log(JSON.stringify(e.choice));
+            });
+        $("#function").select2({
+            placeholder: "Selecione uma função"
+            }).on("selected",
+            function (e) {
+                log(JSON.stringify(e.choice));
+            });
+    </script>
+}

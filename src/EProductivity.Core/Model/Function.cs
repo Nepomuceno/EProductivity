@@ -2,15 +2,15 @@
 
 namespace EProductivity.Core.Model
 {
-    public class Responsability
+    public class Function
     {
-        public long ResponsabilityId { get; set; }
+        public long FunctionId { get; set; }
         public string Name { get; set; }
         public Area Area { get; set; }
         public long AreaId { get; set; }
         public Organization Organization { get; set; }
         public long OrganizationId { get; set; }
         public List<Worker> Workers { get; set; }
-        public List<ActivityResponsability> ActivityResponsabilities { get; set; }
+        public List<Activity> Activities { get; set; }
     }
 }

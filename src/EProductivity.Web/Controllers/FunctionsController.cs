@@ -8,13 +8,13 @@ using EProductivity.Web.Models;
 
 namespace EProductivity.Web.Controllers
 {
-    [RoutePrefix("responsability")]
-    public class ResponsabilitiesController : Controller
+    [RoutePrefix("function")]
+    public class FunctionsController : Controller
     {
         private readonly IModelContext _context;
         private readonly EProductivityUserManager _userManager;
 
-        public ResponsabilitiesController(IModelContext context, EProductivityUserManager userManager)
+        public FunctionsController(IModelContext context, EProductivityUserManager userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -28,11 +28,11 @@ namespace EProductivity.Web.Controllers
         [Route("{areaId}")]
         public ActionResult Index(int areaId)
         {
-            var area = _context.Responsabilities[areaId];
-            var areas = _context.Responsabilities.Include(r => r.Area).Where(r => r.AreaId == areaId).Select(r => new ResponsabilityViewModel
+            var area = _context.Functions[areaId];
+            var areas = _context.Functions.Include(r => r.Area).Where(r => r.AreaId == areaId).Select(r => new FunctionViewModel
             {
                 Name = r.Name,
-                Id = r.ResponsabilityId,
+                Id = r.FunctionId,
                 Area = r.Area.Name,
                 AreaId = r.AreaId
             });
@@ -47,7 +47,7 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("new"),HttpPost]
-        public ActionResult Create(ResponsabilityViewModel responsability)
+        public ActionResult Create(FunctionViewModel function)
         {
             return View();
         }
@@ -59,27 +59,20 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("dropdown"),HttpGet,HttpPost]
-        public async Task<JsonResult> GetResponsabilityDropDown(int areaId)
+        public async Task<JsonResult> GetFunctionsDropDown(int areaId)
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-            var result = _context.Responsabilities.Where(a => a.OrganizationId == currentUser.OrganizationId && a.AreaId == areaId).GroupBy(r => r.Area).Select(a => new Category()
+            var result = _context.Functions.Where(a => a.OrganizationId == currentUser.OrganizationId && a.AreaId == areaId).GroupBy(r => r.Area).Select(a => new Category()
             {
                 text = a.Key.Name,
                 children = a.Select(r => new Option()
                 {
-                    id = r.ResponsabilityId.ToString(CultureInfo.InvariantCulture),
+                    id = r.FunctionId.ToString(CultureInfo.InvariantCulture),
                     text = r.Name
                 })
             });
             return Json(new DropdownOptions {more = false,results = result}, "application/json", JsonRequestBehavior.AllowGet);
         }
-    }
-    public class ResponsabilityViewModel
-    {
-        public string Name { get; set; }
-        public long Id { get; set; }
-        public string Area { get; set; }
-        public long AreaId { get; set; }
     }
 
 }

@@ -203,11 +203,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Models\AreaViewModel.cs" />
     <Compile Include="Controllers\ChartController.cs" />
-    <Compile Include="Controllers\ResponsabilitiesController.cs" />
+    <Compile Include="Models\FunctionViewModel.cs" />
+    <Compile Include="Controllers\FunctionsController.cs" />
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
+    <Compile Include="Models\WorkerViewModel.cs" />
     <Compile Include="Controllers\WorkSamplesController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -541,8 +544,8 @@
     <Content Include="Views\Workers\Index.cshtml" />
     <Content Include="Views\Areas\Index.cshtml" />
     <Content Include="Views\Areas\Create.cshtml" />
-    <Content Include="Views\Responsabilities\SelectArea.cshtml" />
-    <Content Include="Views\Responsabilities\Index.cshtml" />
+    <Content Include="Views\Functions\SelectArea.cshtml" />
+    <Content Include="Views\Functions\Index.cshtml" />
     <Content Include="Views\WorkSamples\Index.cshtml" />
     <Content Include="Views\WorkSamples\Create.cshtml" />
     <Content Include="Views\Chart\ProdutividadeGeral.cshtml" />

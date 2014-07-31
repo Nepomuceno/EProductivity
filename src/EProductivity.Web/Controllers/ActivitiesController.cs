@@ -53,7 +53,7 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("dropdown"), HttpGet]
-        public async Task<ActionResult> GetResponsabilityDropDown()
+        public async Task<ActionResult> GetActivityDropDown()
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
             var result = _context.Activities.Where(a => a.OrganizationId == currentUser.OrganizationId).Select(a => new Option()
