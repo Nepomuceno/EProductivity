@@ -3,39 +3,42 @@
     ViewBag.Title = "Funções";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="col-sm-8 col-md-8">
+    <div class="block-flat">
+        <div class="header">
+            <h3>@ViewBag.Title</h3>
+        </div>
         <div class="content">
-            <div class="table-responsive">
-                <table class="table no-border hover">
-                    <thead class="no-border">
-                        <tr>
-                            <th><strong>Nome</strong></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody class="no-border-y">
-                        @{
-                            foreach (var areaFuncoes in Model.GroupBy(f => f.Area).OrderBy(af => af.Key))
-                            {
+            <ul>
+                @foreach (var areaFuncoes in Model.GroupBy(f => f.Area).OrderBy(af => af.Key))
+                {
+                    <li><h3>Area: @areaFuncoes.Key</h3></li>
+                    <div class="table-responsive">
+                        <table class="table no-border hover">
+                            <thead class="no-border">
                                 <tr>
-                                    <td colspan="2">
-                                        @areaFuncoes.Key
-                                    </td>
+                                    <th><strong>Nome</strong></th>
+                                    <th></th>
                                 </tr>
-                                foreach (var functionViewModel in areaFuncoes)
+                            </thead>
+                            <tbody class="no-border-y">
+
+                                @foreach (var functionViewModel in areaFuncoes)
                                 {
                                     <tr>
                                         <td>@functionViewModel.Name</td>
                                         <td><a class="btn btn-danger btn-flat btn-sm"><strong>x</strong> Excluir</a></td>
                                     </tr>
                                 }
-                            }
-}
-                    </tbody>
-                </table>
-            </div>
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </ul>
         </div>
- </div>
+    </div>
+</div>
 <div class="col-sm-4 col-md-4">
     <a href="@Url.Action("Create","Functions")" class="btn btn-primary btn-lg">Cadastrar</a>
 </div>

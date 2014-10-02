@@ -3,13 +3,14 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using EProductivity.Core.Model;
 using EProductivity.Core.Model.Data;
 using EProductivity.Web.Models;
 
 namespace EProductivity.Web.Controllers
 {
     [RoutePrefix("function")]
-    public class FunctionsController : Controller
+    public class FunctionsController : AsyncController
     {
         private readonly IModelContext _context;
         private readonly EProductivityUserManager _userManager;
@@ -19,24 +20,17 @@ namespace EProductivity.Web.Controllers
             _context = context;
             _userManager = userManager;
         }
-        [Route(""),HttpGet]
-        public ActionResult SelectArea()
-        {
-            return View();
-        }
 
-        [Route("{areaId}")]
-        public ActionResult Index(int areaId)
+        [Route("")]
+        public ActionResult Index()
         {
-            var area = _context.Functions[areaId];
-            var areas = _context.Functions.Include(r => r.Area).Where(r => r.AreaId == areaId).Select(r => new FunctionViewModel
+            var areas = _context.Functions.Include(r => r.Area).Select(r => new FunctionViewModel
             {
                 Name = r.Name,
                 Id = r.FunctionId,
                 Area = r.Area.Name,
                 AreaId = r.AreaId
             });
-            ViewBag.Area = area;
             return View(areas);
         }
 
@@ -47,9 +41,16 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("new"),HttpPost]
-        public ActionResult Create(FunctionViewModel function)
+        public async Task<ActionResult> Create(FunctionViewModel function)
         {
-            return View();
+            _context.Functions.Add(new Function()
+            {
+                AreaId = function.AreaId,
+                Name = function.Name,
+                OrganizationId = (await _userManager.FindByNameAsync(User.Identity.Name)).OrganizationId
+            });
+            await _context.SaveAsync();
+            return RedirectToAction("Index");
         }
 
         [Route("delete"), HttpGet]
@@ -59,10 +60,11 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("dropdown"),HttpGet,HttpPost]
-        public async Task<JsonResult> GetFunctionsDropDown(int areaId)
+        public async Task<JsonResult> GetFunctionsDropDown(string q)
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-            var result = _context.Functions.Where(a => a.OrganizationId == currentUser.OrganizationId && a.AreaId == areaId).GroupBy(r => r.Area).Select(a => new Category()
+            var result = _context.Functions.Where(a => a.OrganizationId == currentUser.OrganizationId && 
+                (q == "" || a.Name.Contains(q))).GroupBy(r => r.Area).Select(a => new Category()
             {
                 text = a.Key.Name,
                 children = a.Select(r => new Option()

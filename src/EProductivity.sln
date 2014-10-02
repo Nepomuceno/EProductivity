@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 2012
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EProductivity.Web", "EProductivity.Web\EProductivity.Web.csproj", "{64067A5F-404E-4046-93EB-B720479A34BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EProductivity.Core", "EProductivity.Core\EProductivity.Core.csproj", "{47EE368F-1D00-4CF5-960B-96099FFA01A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EProductivity.Droid", "EProductivity.Android\EProductivity.Droid.csproj", "{F600BD20-9126-4379-9447-F7A613D421B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{64067A5F-404E-4046-93EB-B720479A34BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64067A5F-404E-4046-93EB-B720479A34BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64067A5F-404E-4046-93EB-B720479A34BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64067A5F-404E-4046-93EB-B720479A34BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{47EE368F-1D00-4CF5-960B-96099FFA01A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{47EE368F-1D00-4CF5-960B-96099FFA01A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47EE368F-1D00-4CF5-960B-96099FFA01A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47EE368F-1D00-4CF5-960B-96099FFA01A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64067A5F-404E-4046-93EB-B720479A34BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64067A5F-404E-4046-93EB-B720479A34BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64067A5F-404E-4046-93EB-B720479A34BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64067A5F-404E-4046-93EB-B720479A34BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F600BD20-9126-4379-9447-F7A613D421B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F600BD20-9126-4379-9447-F7A613D421B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F600BD20-9126-4379-9447-F7A613D421B7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F600BD20-9126-4379-9447-F7A613D421B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F600BD20-9126-4379-9447-F7A613D421B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F600BD20-9126-4379-9447-F7A613D421B7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = EProductivity.Android\EProductivity.Droid.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

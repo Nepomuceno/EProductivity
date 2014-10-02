@@ -62,10 +62,10 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("dropdown"),HttpGet]
-        public async Task<JsonResult> GetAreasDropDown()
+        public async Task<JsonResult> GetAreasDropDown(string q)
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-            var result = _context.Areas.Where(a => a.OrganizationId == currentUser.OrganizationId).Select(a => new Option(){id = a.AreaId.ToString(), text = a.Name});
+            var result = _context.Areas.Where(a => a.OrganizationId == currentUser.OrganizationId && (q == "" || a.Name.Contains(q))).Select(a => new Option(){id = a.AreaId.ToString(), text = a.Name});
             return Json(new DropdownOptions {more = false,results = new List<Category>{new Category {text = "Areas", children = result}}}, "application/json", JsonRequestBehavior.AllowGet);
         }
     }

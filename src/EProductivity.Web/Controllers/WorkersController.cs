@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using EProductivity.Core.Model;
 using EProductivity.Core.Model.Data;
 using EProductivity.Web.Models;
 using Microsoft.Ajax.Utilities;
@@ -13,7 +14,7 @@ using Microsoft.Ajax.Utilities;
 namespace EProductivity.Web.Controllers
 {
     [RoutePrefix("workers")]
-    public class WorkersController : Controller
+    public class WorkersController : AsyncController
     {
         private readonly IModelContext _context;
         private readonly EProductivityUserManager _userManager;
@@ -44,8 +45,15 @@ namespace EProductivity.Web.Controllers
         }
 
         [Route("new"),HttpPost]
-        public ActionResult Create(WorkerViewModel worker)
+        public async Task<ActionResult> Create(WorkerViewModel worker)
         {
+            _context.Workers.Add(new Worker()
+            {
+                Name = worker.Name,
+                FunctionId = worker.FucntionId,
+                OrganizationId = (await _userManager.FindByNameAsync(User.Identity.Name)).OrganizationId
+            });
+            await _context.SaveAsync();
             return View();
         }
 
