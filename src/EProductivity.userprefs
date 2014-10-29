@@ -1,0 +1,14 @@
+﻿<Properties GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Teste" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Eproductivity.Service\Models\eproductivityContext.cs">
+    <Files>
+      <File FileName="EProductivity.Android\MainActivity.cs" Line="10" Column="10" />
+      <File FileName="Eproductivity.Service\Models\eproductivityContext.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.EProductivity.Droid MonoForAntroid.PreferredDevice="Nexus 4" />
+</Properties>

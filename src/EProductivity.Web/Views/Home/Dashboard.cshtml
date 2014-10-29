@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "E-Productivity";
+}
+
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="block-flat">
+            <div class="header">
+                <h3>Produtividade atual</h3>
+            </div>
+            <div class="content">
+                @{
+                    Html.RenderAction("ProdutividadeGeral","Chart");
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="block-flat">
+            <div class="header">
+                <h3>Amostragens em aberto</h3>
+            </div>
+            <div class="content">
+                @{
+                    Html.RenderAction("OpenList","WorkSamples");
+                }
+            </div>
+        </div>
+    </div>
+</div>

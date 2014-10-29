@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ImageView
+        android:src="@color/xam_dark_blue"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:id="@+id/workerImage" />
+    <LinearLayout
+        android:id="@+id/descriptionLayout"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp">
+            <TextView
+                android:text="Gabriel Nepomuceno"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/nameWorker"
+                android:layout_weight="1"
+                android:textSize="24sp"
+                android:gravity="bottom"
+                android:textColor="@color/xam_blue" />
+        </LinearLayout>
+        <Button
+            style="@style/XamButton"
+            android:text="Trabalhando"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:id="@+id/working"
+            android:background="@color/xam_green" />
+        <Button
+            style="@style/XamButton"
+            android:text="Auxiliar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:id="@+id/accessory"
+            android:background="@color/xam_yellow" />
+        <Button
+            style="@style/XamButton"
+            android:text="Não Trabalho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:id="@+id/notWorking"
+            android:background="@color/xam_red" />
+    </LinearLayout>
+</LinearLayout>

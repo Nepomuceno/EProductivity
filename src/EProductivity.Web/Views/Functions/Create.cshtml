@@ -1,0 +1,36 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Funções";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", " Functions", FormMethod.Post))
+{
+    <input type="text" name="name" placeholder="Nome da funcao" />
+    <input class="form-control" id="areaId" required name="areaId" type="text" placeholder="Nome">
+    <input type="submit" class="btn btn-success" value="Cadastrar"/>
+}
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        $("#areaId").select2({
+            placeholder: "Escolha uma area",
+            minimumInputLength: 0,
+            ajax: {
+                url: '@Url.Action("GetAreasDropDown","Areas")',
+                data: function (term, page) {
+                    return {
+                        q: term, // search term
+                        page_limit: 10,
+                    };
+                },
+                results: function (data, page) {
+                    return data;
+                }
+            }
+        });
+    </script>
+}

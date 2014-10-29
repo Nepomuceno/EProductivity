@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="16dp">
+    <ImageView
+        android:src="@drawable/Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView1"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_buttons">
+        <Button
+            style="@style/XamButton"
+            android:text="Amostragens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAmostragens"
+            android:layout_marginTop="16dp" />
+        <Button
+            style="@style/XamButton"
+            android:text="Trabalhadores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnTrabalhadores"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+    <TextView
+        android:text="E-Productivity"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/name"
+        android:layout_weight="1"
+        android:textSize="29sp"
+        android:gravity="bottom"
+        android:textColor="@color/xam_blue" />
+</LinearLayout>
