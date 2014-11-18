@@ -9,8 +9,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eproductivity.Service</RootNamespace>
-    <AssemblyName>Eproductivity.Service</AssemblyName>
+    <RootNamespace>EProductivity.Service</RootNamespace>
+    <AssemblyName>EProductivity.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -185,14 +185,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
+    <Compile Include="DataObjects\RegistrationRequest.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
-    <Compile Include="Models\eproductivityContext.cs" />
+    <Compile Include="Models\EproductivityContext.cs" />
+    <Compile Include="Models\WorkSampleEntityData.cs" />
     <Compile Include="ScheduledJobs\SampleJob.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\CriptoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -207,6 +211,14 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eproductivity\Eproductivity.csproj">
+      <Project>{e9cb66d9-26d7-413e-b4d6-cf836fb715ee}</Project>
+      <Name>Eproductivity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\Eproductivity\Eproductivity.projitems" Label="Shared" Condition="Exists('..\Eproductivity\Eproductivity.projitems')" />
+  <Import Project="..\Eproductivity\Eproductivity.projitems" Label="Shared" Condition="Exists('..\Eproductivity\Eproductivity.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />

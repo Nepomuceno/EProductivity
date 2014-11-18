@@ -3,11 +3,12 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using Microsoft.WindowsAzure.Mobile.Service;
 using Microsoft.WindowsAzure.Mobile.Service.Tables;
-using eproductivityService.DataObjects;
+using EProductivity.Model;
+using EProductivity.Service.DataObjects;
 
-namespace eproductivityService.Models
+namespace EProductivity.Service.Models
 {
-    public class eproductivityContext : DbContext
+    public class EproductivityContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -21,11 +22,27 @@ namespace eproductivityService.Models
         // Web.config, is the same as the service name when hosted in Azure.
         private const string connectionStringName = "Name=MS_TableConnectionString";
 
-        public eproductivityContext() : base(connectionStringName)
+        public EproductivityContext() : base(connectionStringName)
         {
         } 
 
         public DbSet<TodoItem> TodoItems { get; set; }
+
+        public DbSet<Organization> Organiations { get; set; }
+
+        public DbSet<Account> Accounts { get; set; }
+
+        public DbSet<WorkSample> WorkSamples { get; set; }
+
+        public DbSet<Tour> Tours { get; set; }
+
+        public DbSet<Observation> Observation { get; set; }
+
+        public DbSet<Activity> Activities { get; set; }
+
+        public DbSet<Worker> Workers { get; set; }
+
+        public DbSet<Area> Areas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

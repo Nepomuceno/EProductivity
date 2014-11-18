@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using EProductivity.Droid.Helpers;
-using EProductivity.Droid.Model;
+using EProductivity.Model;
 using Activity = Android.App.Activity;
 
 namespace EProductivity.Droid.Fragments

@@ -7,7 +7,7 @@ using Android.Provider;
 using Android.Views;
 using Android.Widget;
 using EProductivity.Droid.Helpers;
-using EProductivity.Droid.Model;
+using EProductivity.Model;
 using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.XamarinAndroid;

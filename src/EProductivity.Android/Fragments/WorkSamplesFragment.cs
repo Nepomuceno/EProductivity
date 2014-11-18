@@ -8,8 +8,8 @@ using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using EProductivity.Droid.Model;
 using Activity = Android.App.Activity;
+using EProductivity.Model;
 
 namespace EProductivity.Droid.Fragments
 {

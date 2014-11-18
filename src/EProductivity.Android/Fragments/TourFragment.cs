@@ -6,15 +6,15 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using EProductivity.Droid.Helpers;
-using EProductivity.Droid.Model;
-using Activity = EProductivity.Droid.Model.Activity;
+using Activity = EProductivity.Model.Activity;
+using EProductivity.Model;
 
 namespace EProductivity.Droid.Fragments
 {
     public class TourFragment : Fragment
     {
         private readonly Tour _tour;
-        private List<Model.Activity> _activities;
+        private List<Activity> _activities;
         private int _position = 0;
 
         private Button _workingButton;

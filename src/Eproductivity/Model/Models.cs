@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using Android.Hardware;
 
-namespace EProductivity.Droid.Model
+namespace EProductivity.Model
 {
-    public class Organization
+    public partial class Organization
     {
-        public int OrganizationId { get; set; }
         public OrganizationType Type { get; set; }
         public string Document { get; set; }
     }
-    public class User
+    public partial class Account
     {
-        public int UserId { get; set; }
         public string Username { get; set; }
-        public string Password { get; set; }
+        public byte[] Salt { get; set; }
+        public byte[] SaltedAndHashedPassword { get; set; }
     }
     public enum OrganizationType
     {
@@ -22,7 +20,7 @@ namespace EProductivity.Droid.Model
         Business
     }
 
-    public class WorkSample
+    public partial class WorkSample
     {
         public string Title { get; set; }
         public int WorkSampleId { get; set; }
@@ -39,7 +37,7 @@ namespace EProductivity.Droid.Model
         Close
     }
 
-    public class Tour
+    public partial class Tour
     {
         public int TourId { get; set; }
         public List<Observation> Observations { get; set; }
@@ -49,7 +47,7 @@ namespace EProductivity.Droid.Model
         public int WorkSampleId { get; set; }
     }
 
-    public class Observation
+    public partial class Observation
     {
         public int ObservationId { get; set; }
         public Worker Worker { get; set; }
@@ -61,7 +59,7 @@ namespace EProductivity.Droid.Model
         public int TourId { get; set; }
     }
 
-    public class Activity
+    public partial class Activity
     {
         public int ActivityId { get; set; }
         public string Description { get; set; }
@@ -74,7 +72,7 @@ namespace EProductivity.Droid.Model
         Accessory,
         NotWork
     }
-    public class Worker
+    public partial class Worker
     {
         public int WorkerId { get; set; }
         public string Name { get; set; }
@@ -86,7 +84,7 @@ namespace EProductivity.Droid.Model
 
     }
 
-    public class Area
+    public partial class Area
     {
         public string Name { get; set; }
         public int AreaId { get; set; }

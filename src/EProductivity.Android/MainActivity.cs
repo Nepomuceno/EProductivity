@@ -6,7 +6,7 @@ using Android.Util;
 using Android.Views;
 using EProductivity.Droid.Fragments;
 using EProductivity.Droid.Helpers;
-using EProductivity.Droid.Model;
+using EProductivity.Model;
 using Activity = Android.App.Activity;
 using System.Collections.Generic;
 
@@ -288,7 +288,6 @@ namespace EProductivity.Droid
                 Organization = new Organization()
                 {
                     Document = "077.611.486-78",
-                    OrganizationId = 1,
                     Type = OrganizationType.Individual
                 },
                 OrganizationId = 1,
@@ -303,7 +302,6 @@ namespace EProductivity.Droid
                 Organization = new Organization()
                 {
                     Document = "077.611.486-78",
-                    OrganizationId = 1,
                     Type = OrganizationType.Individual
                 },
                 OrganizationId = 1,

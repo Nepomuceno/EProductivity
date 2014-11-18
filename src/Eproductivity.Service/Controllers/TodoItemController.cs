@@ -4,17 +4,17 @@ using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.OData;
 using Microsoft.WindowsAzure.Mobile.Service;
-using eproductivityService.DataObjects;
-using eproductivityService.Models;
+using EProductivity.Service.Models;
+using EProductivity.Service.DataObjects;
 
-namespace eproductivityService.Controllers
+namespace EProductivity.Service.Controllers
 {
     public class TodoItemController : TableController<TodoItem>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
-            eproductivityContext context = new eproductivityContext();
+            EproductivityContext context = new EproductivityContext();
             DomainManager = new EntityDomainManager<TodoItem>(context, Request, Services);
         }
 

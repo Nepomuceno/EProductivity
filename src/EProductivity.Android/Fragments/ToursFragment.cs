@@ -8,11 +8,11 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using EProductivity.Droid.Helpers;
-using EProductivity.Droid.Model;
+using EProductivity.Model;
 using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.XamarinAndroid;
-using Activity = EProductivity.Droid.Model.Activity;
+using Activity = EProductivity.Model.Activity;
 
 namespace EProductivity.Droid.Fragments
 {
